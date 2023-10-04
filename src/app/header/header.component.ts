@@ -7,8 +7,15 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   hidden: boolean = false;
+  name: string = 'something...';
 
-  onClickToggle(): void {
+  public onClickToggle(): void {
     this.hidden = !this.hidden;
+  }
+
+  public onInputChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    this.name = input.value;
   }
 }

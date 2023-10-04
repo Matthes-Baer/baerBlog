@@ -4,4 +4,6 @@
   <button (click)="onClickToggle()">
     Click here to toggle the h1 visibility
   </button>
+  <input [value]="name" (input)="onInputChange($event)" />
+  <p>{{ name }}</p>
 </div>
