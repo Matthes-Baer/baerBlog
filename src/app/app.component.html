@@ -20,6 +20,17 @@
   <h2>Next Steps</h2>
   <p>What do you want to do next with your app?</p>
 
+  <div *ngFor="let post of posts" style="font-size: large">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    <markdown lineNumbers [data]="post.code"></markdown>
+    <p><strong>Tags:</strong> {{ post.tags.join(", ") }}</p>
+  </div>
+
+  <!-- Buttons to filter posts -->
+  <button (click)="loadAllPosts()">All Posts</button>
+  <button (click)="loadPostsByTag('Coding')">Coding Posts</button>
+
   <input type="hidden" #selection />
 
   <div class="card-container">

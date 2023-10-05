@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "First Post",
+    "content": "This is the content of the first post.",
+    "code": "```js \n function helloWorld() {\n\tconsole.log(\"Hello World!\")\n} \n ```",
+    "tags": ["General", "Intro"]
+  },
+  {
+    "id": 2,
+    "title": "Diving into Coding",
+    "content": "This post is all about coding...",
+    "code": "```csharp \npublic void helloWorld() \n{\n\tConsole.WriteLine(\"Hello World!\")\n} \n ```",
+    "tags": ["Coding"]
+  },
+  {
+    "id": 3,
+    "title": "Angular Tips",
+    "content": "Tips and tricks for Angular developers...",
+    "tags": ["Coding", "Angular"]
+  }
+]
