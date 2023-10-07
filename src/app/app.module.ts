@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TopMenuComponent } from './header/top-menu/top-menu.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, TopMenuComponent],
@@ -14,6 +15,7 @@ import { MarkdownModule } from 'ngx-markdown';
     AppRoutingModule,
     HttpClientModule,
     MarkdownModule.forRoot(),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
