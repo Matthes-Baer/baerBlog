@@ -6,6 +6,15 @@
     movement with the mouse and to write about specific coding problems -
     basically a library of stuff I would probably want to remember for the
     foreseeable future.
+    <br />
+    Use highlight directive for hover (and use other custom directives maybe?)
+    <br />
+    service for fetching the post data from the JSON file
+    <br />
+    General styling via SCSS (respective scss files)
+    <br />
+    Make use of Routing (maybe an About page and then the posts page and dynamic
+    routes for each post)
   </h2>
 
   <input [(ngModel)]="searchValue" />
@@ -37,10 +46,6 @@
       <p><strong>Tags:</strong> {{ post.tags.join(", ") }}</p>
     </div>
   </div>
-
-  <!-- Buttons to filter posts -->
-  <!-- <button (click)="loadAllPosts()">All Posts</button>
-  -->
 
   <router-outlet></router-outlet>
 </div>
