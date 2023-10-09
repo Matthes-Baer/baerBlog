@@ -1,0 +1,45 @@
+<h2>
+  This blog can be used to write about Godot "tutorials" like the camera
+  movement with the mouse and to write about specific coding problems -
+  basically a library of stuff I would probably want to remember for the
+  foreseeable future.
+  <br />
+  Use highlight directive for hover (and use other custom directives maybe?)
+  <br />
+  service for fetching the post data from the JSON file
+  <br />
+  General styling via SCSS (respective scss files)
+  <br />
+  Make use of Routing (maybe an About page and then the posts page and dynamic
+  routes for each post)
+</h2>
+
+<input [(ngModel)]="searchValue" />
+<p>{{ searchValue }}</p>
+<button (click)="searchForValue()">Search Button</button>
+
+<div>
+  <div *ngFor="let tag of ['Leetcode', 'Godot', 'Angular']">
+    <button (click)="loadPostsByTag(tag)">{{ tag }}</button>
+  </div>
+</div>
+
+<div style="width: 100%">
+  <div
+    *ngFor="let post of posts"
+    style="
+      font-size: large;
+      background-color: aqua;
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+    "
+  >
+    <h2>{{ post.title }}</h2>
+    <p [ngStyle]="{ color: post.code ? 'red' : 'black' }">
+      {{ post.content }}
+    </p>
+    <markdown lineNumbers [data]="post.code"></markdown>
+    <p><strong>Tags:</strong> {{ post.tags.join(", ") }}</p>
+  </div>
+</div>

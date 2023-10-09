@@ -1,9 +1,9 @@
 <div class="header_main">
-  <top-menu></top-menu>
-  <h1 [hidden]="hidden">The header works!</h1>
-  <button (click)="onClickToggle()">
-    Click here to toggle the h1 visibility
-  </button>
-  <input [value]="name" (input)="onInputChange($event)" />
-  <p>{{ name }}</p>
+  <a
+    routerLinkActive="activeRouterLink"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLink="/posts"
+    >Home</a
+  >
+  <a routerLinkActive="activeRouterLink" routerLink="/abc">Home</a>
 </div>
