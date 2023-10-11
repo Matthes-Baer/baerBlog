@@ -7,7 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 // Posts, About
 // Posts/:postId
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: 'posts', component: PostsComponent },
   { path: '**', component: NotFoundComponent },
