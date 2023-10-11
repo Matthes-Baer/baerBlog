@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostsComponent } from './posts/posts.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SinglePostComponent } from './components/single-post/single-post.component';
 
 //
 // Posts, About
@@ -10,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: 'posts', component: PostsComponent },
+  { path: 'posts/:id', component: SinglePostComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

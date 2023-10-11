@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { routes } from './app-routing.module';
-import { PostsComponent } from './posts/posts.component';
+import { PostsComponent } from './components/posts/posts.component';
 import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Location } from '@angular/common';
 

@@ -3,14 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { FormsModule } from '@angular/forms';
-import { PostsComponent } from './posts/posts.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SinglePostComponent } from './components/single-post/single-post.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, PostsComponent, NotFoundComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    PostsComponent,
+    NotFoundComponent,
+    SinglePostComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

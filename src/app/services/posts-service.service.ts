@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import type { Post } from 'src/utils/interfaces';
 
 @Injectable({
@@ -20,5 +20,16 @@ export class PostsService {
     return this.http
       .get<Post[]>(this.postsUrl)
       .pipe(map((posts) => posts.filter((post) => post.tags.includes(tag))));
+  }
+
+  getSinglePostById(id: string): Observable<Post> {
+    return this.http
+      .get<Post[]>(this.postsUrl)
+      .pipe(
+        map(
+          (posts: Post[]) =>
+            posts.filter((post: Post) => post.id === parseInt(id))[0]
+        )
+      );
   }
 }
