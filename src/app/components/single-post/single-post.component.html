@@ -1,3 +1,21 @@
-<p>single-post works!</p>
-<h1>{{ currentPost.content }}</h1>
-<markdown lineNumbers [data]="currentPost.code"></markdown>
+<main class="single-post-container">
+  <div class="single-post-title-area-container">
+    <p class="single-post-title-area-tags">
+      [{{ currentPost.tags.join(", ") }}]
+    </p>
+    <h1 class="single-post-title-area-title">{{ currentPost.title }}</h1>
+    <p class="single-post-title-area-date">{{ getDate(currentPost.date) }}</p>
+  </div>
+
+  <div class="single-post-content-area-container">
+    {{ currentPost.content }}
+  </div>
+
+  <div class="single-post-markdown-area-container">
+    <markdown lineNumbers [data]="currentPost.code"></markdown>
+  </div>
+
+  <div class="single-post-next-post-area-container">
+    <p>See next similar post...</p>
+  </div>
+</main>

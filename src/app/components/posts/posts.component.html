@@ -27,13 +27,8 @@
 <div style="width: 100%">
   <div
     *ngFor="let post of posts"
-    style="
-      font-size: large;
-      background-color: aqua;
-      width: 75%;
-      margin-left: auto;
-      margin-right: auto;
-    "
+    (click)="navigateToPost(post.id)"
+    class="post-container"
   >
     <h2>{{ post.title }}</h2>
     <p [ngStyle]="{ color: post.code ? 'red' : 'black' }">

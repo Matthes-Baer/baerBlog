@@ -1,7 +1,22 @@
-.header_main {
-  font-size: 50px;
-}
+@import "../../../utils/scssVariables.scss";
 
-.activeRouterLink {
-  color: pink;
+.header {
+  &-container {
+    font-size: $main-font-size;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid $fourth-color;
+  }
+
+  &-link {
+    padding-right: 12.5px;
+    padding-left: 12.5px;
+    text-decoration: none;
+    color: $fourth-color;
+  }
+
+  &-active-router-link {
+    color: $second-color;
+  }
 }

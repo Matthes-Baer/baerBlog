@@ -1,70 +1,20 @@
 [
   {
     "id": 1,
+    "date": "2022-03-25",
     "title": "First Post",
+    "description": "Quick description",
     "content": "This is the content of the first post.",
     "code": "```js \n function helloWorld() {\n\tconsole.log(\"Hello World!\")\n} \n ```",
     "tags": ["General", "Intro"]
   },
   {
     "id": 2,
+    "date": "2023-06-01",
     "title": "Diving into Coding",
+    "description": "Quick description",
     "content": "This post is all about coding...",
     "code": "```csharp \npublic void helloWorld() \n{\n\tConsole.WriteLine(\"Hello World!\")\n} \n ```",
     "tags": ["Leetcode"]
-  },
-  {
-    "id": 3,
-    "title": "3rd Tips",
-    "content": "Tips and tricks for Angular developers...",
-    "tags": ["Coding", "Angular"]
-  },
-  {
-    "id": 4,
-    "title": "4th Angular Tips",
-    "content": "Second Something",
-    "tags": ["Coding", "Angular"]
-  },
-  {
-    "id": 5,
-    "title": "5th Angular Tips",
-    "content": "Third Something",
-    "tags": ["Coding", "Angular"]
-  },
-  {
-    "id": 6,
-    "title": "6th Angular Tips",
-    "content": "Third Something",
-    "tags": ["Coding", "Angular"]
-  },
-  {
-    "id": 7,
-    "title": "7th Angular Tips",
-    "content": "Third Something",
-    "tags": ["Godot"]
-  },
-  {
-    "id": 8,
-    "title": "8th  Tips",
-    "content": "Third Something",
-    "tags": ["Godot", "Angular"]
-  },
-  {
-    "id": 9,
-    "title": "9th  Tips",
-    "content": "Third Something",
-    "tags": ["Godot"]
-  },
-  {
-    "id": 10,
-    "title": "10th  Tips",
-    "content": "Third Something",
-    "tags": ["Godot"]
-  },
-  {
-    "id": 11,
-    "title": "11th Angular Tips",
-    "content": "Third Something",
-    "tags": ["Coding", "Angular"]
   }
 ]

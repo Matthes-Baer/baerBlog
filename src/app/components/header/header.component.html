@@ -1,9 +1,15 @@
-<div class="header_main">
+<div class="header-container">
   <a
-    routerLinkActive="activeRouterLink"
+    routerLinkActive="header-active-router-link"
     [routerLinkActiveOptions]="{ exact: true }"
     routerLink="/posts"
-    >Home</a
+    class="header-link"
+    >Posts</a
   >
-  <a routerLinkActive="activeRouterLink" routerLink="/abc">Home</a>
+  <a
+    routerLinkActive="header-active-router-link"
+    routerLink="/about"
+    class="header-link"
+    >About</a
+  >
 </div>

@@ -1,0 +1,40 @@
+@import "../../../utils/scssVariables.scss";
+
+.single-post {
+  &-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-title-area {
+    &-container {
+      display: inherit;
+      flex-direction: column;
+    }
+
+    &-tags {
+      font-size: $secondary-font-size;
+    }
+
+    &-title {
+      font-size: $title-font-size;
+    }
+
+    &-date {
+      font-size: $secondary-font-size;
+    }
+  }
+
+  &-content-area {
+    &-container {
+      font-size: $main-font-size;
+    }
+  }
+
+  &-next-post-area-container {
+    display: flex;
+    font-size: $main-font-size;
+    justify-content: flex-end;
+    background-color: $second-color;
+  }
+}

@@ -1,6 +1,7 @@
 import { Post } from 'src/utils/interfaces';
 import { PostsService } from '../../services/posts-service.service';
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -13,7 +14,7 @@ export class PostsComponent implements OnInit, OnChanges {
 
   posts: Post[] = [];
 
-  constructor(private postsService: PostsService) {}
+  constructor(private postsService: PostsService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadAllPosts();
@@ -21,6 +22,10 @@ export class PostsComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     console.log(this.searchValue);
+  }
+
+  navigateToPost(id: number): void {
+    this.router.navigate(['posts', id]);
   }
 
   searchForValue(): void {

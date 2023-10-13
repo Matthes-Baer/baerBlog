@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { PostsComponent } from './components/posts/posts.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
+import { HighlightDirective } from './customDirectives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SinglePostComponent } from './components/single-post/single-post.compon
     PostsComponent,
     NotFoundComponent,
     SinglePostComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,

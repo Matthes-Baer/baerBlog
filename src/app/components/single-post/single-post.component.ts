@@ -28,4 +28,8 @@ export class SinglePostComponent implements OnInit {
       this.currentPost = posts;
     });
   }
+
+  getDate(stringDate: string): string {
+    return new Date(stringDate).toLocaleDateString('en-US');
+  }
 }

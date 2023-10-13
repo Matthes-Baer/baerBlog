@@ -2,6 +2,7 @@
 
 // This font-family is also available on the other scss files of the components
 @import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Port+Lligat+Slab&family=Quicksand:wght@300;400&family=Recursive:wght@300&display=swap");
+@import "./utils/scssVariables.scss";
 
 * {
   margin: 0;
@@ -14,5 +15,8 @@
 body {
   font-family: "Edu NSW ACT Foundation", cursive;
   font-size: 14px;
-  color: #333;
+  color: $fourth-color;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: $first-color;
 }
