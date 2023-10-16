@@ -19,7 +19,7 @@ export class PostsService {
   getPostsByTag(tag: string): Observable<Post[]> {
     return this.http
       .get<Post[]>(this.postsUrl)
-      .pipe(map((posts) => posts.filter((post) => post.tags.includes(tag))));
+      .pipe(map((posts) => posts.filter((post) => post.tag === tag)));
   }
 
   getSinglePostById(id: string): Observable<Post> {

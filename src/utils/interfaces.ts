@@ -5,5 +5,5 @@ export interface Post {
   description: string;
   content: string;
   code?: string;
-  tags: string[];
+  tag: string;
 }

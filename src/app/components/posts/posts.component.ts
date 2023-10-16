@@ -49,4 +49,8 @@ export class PostsComponent implements OnInit, OnChanges {
       this.posts = data;
     });
   }
+
+  getDate(stringDate: string): string {
+    return new Date(stringDate).toLocaleDateString('en-US');
+  }
 }
