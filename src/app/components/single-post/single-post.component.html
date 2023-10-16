@@ -1,6 +1,12 @@
 <main class="single-post-container">
   <div class="single-post-title-area-container">
-    <p class="single-post-title-area-tags">[{{ currentPost.tag }}]</p>
+    <p class="single-post-title-area-tags">
+      [{{
+        currentPost.tag === "Codingproblem"
+          ? "Coding Problem"
+          : currentPost.tag
+      }}]
+    </p>
     <h1 class="single-post-title-area-title">{{ currentPost.title }}</h1>
     <p class="single-post-title-area-date">{{ getDate(currentPost.date) }}</p>
   </div>
@@ -10,7 +16,9 @@
   </div>
 
   <div class="single-post-code-area-container">
-    <h2>Code Example:</h2>
+    <h2>
+      {{ "Code Example: " + "(" + currentPost.codeLanguage + ")" }}
+    </h2>
     <markdown lineNumbers [data]="currentPost.code"></markdown>
   </div>
 

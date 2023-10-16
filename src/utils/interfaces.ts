@@ -5,5 +5,6 @@ export interface Post {
   description: string;
   content: string;
   code?: string;
+  codeLanguage: string;
   tag: string;
 }

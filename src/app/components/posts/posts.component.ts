@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class PostsComponent implements OnInit, OnChanges {
   title: string = 'baerBlog';
   searchValue: string = '';
-
   posts: Post[] = [];
 
   constructor(private postsService: PostsService, private router: Router) {}
@@ -20,9 +19,7 @@ export class PostsComponent implements OnInit, OnChanges {
     this.loadAllPosts();
   }
 
-  ngOnChanges(): void {
-    console.log(this.searchValue);
-  }
+  ngOnChanges(): void {}
 
   navigateToPost(id: number): void {
     this.router.navigate(['posts', id]);
@@ -32,21 +29,35 @@ export class PostsComponent implements OnInit, OnChanges {
     if (!this.searchValue) {
       this.loadAllPosts();
     } else {
-      this.posts = this.posts.filter((entry: Post) =>
-        entry.title.includes(this.searchValue)
-      );
+      this.loadPostsByTitle(this.searchValue);
     }
   }
 
   loadAllPosts(): void {
-    this.postsService.getAllPosts().subscribe((data) => {
+    this.postsService.getAllPosts().subscribe((data: Post[]) => {
       this.posts = data;
     });
   }
 
   loadPostsByTag(tag: string): void {
-    this.postsService.getPostsByTag(tag).subscribe((data) => {
+    this.postsService.getPostsByTag(tag).subscribe((data: Post[]) => {
       this.posts = data;
+    });
+  }
+
+  loadPostsByTitle(title: string): void {
+    this.postsService.getPostsByTitle(title).subscribe((data: Post[]) => {
+      this.posts = data;
+    });
+  }
+
+  sortByDate(fromTo: string): void {
+    this.posts.sort((postA: Post, postB: Post) => {
+      if (fromTo === 'oldnew') {
+        return new Date(postA.date).getTime() - new Date(postB.date).getTime();
+      } else {
+        return new Date(postB.date).getTime() - new Date(postA.date).getTime();
+      }
     });
   }
 

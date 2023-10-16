@@ -5,7 +5,8 @@
     "title": "How to use the _UnhandledInput built-in function",
     "description": "The _UnhandledInput function allows for user input handling independent of signals. This short introduction offers a brief explanation to using the built-in _UnhandledInput function in Godot.",
     "content": "To handle user [input events](https://docs.godotengine.org/en/stable/tutorials/inputs/inputevent.html), such as mouse clicks or key presses, Godot provides a signal system. However, if you don't want to configure signals, there's a built-in function you can leverage: _UnhandledInput. By integrating this function into any Godot script, you can easily detect various user inputs.<br/><br/>Below is a brief code snippet from an Area3D script that listens for right-clicks. When a right-click is detected within the corresponding scene, the entire game window closes. While this example demonstrates window closure, the function can accommodate other game logic, such as transitioning to another scene or closing an overlaying window.<br/>The code example also illustrates two distinct methods for detecting user inputs. The first utilizes the user-friendly InputMap, and the second adopts a more manual tactic with @event. Although both methods are effective, the Godot documentation suggests that using InputMap is the more convenient option.",
-    "code": "```js \nusing Godot;\nusing System;\n\npublic partial class Area3D : Godot.Area3D\n{\n\tpublic override void _Ready(){}\n\n\t// Called every frame. 'delta' is the elapsed time since the previous frame.\n\tpublic override void _Process(double delta){}\n\n\tpublic override void _UnhandledInput(InputEvent @event)\n\t{\n\t\tif (Input.IsMouseButtonPressed(MouseButton.Right))\n\t\t{\n\t\t\tGetTree().Quit();\n\t\t}\n\n\t\tif (@event is InputEventKey eventKey)\n\t\t{\n\t\t\tif (eventKey.Pressed && eventKey.Keycode == Key.Escape)\n\t\t\t{\n\t\t\t\t GetTree().Quit();\n\t\t\t}\n\t\t}\n\t}\n}",
+    "code": "```csharp \nusing Godot;\nusing System;\n\npublic partial class Area3D : Godot.Area3D\n{\n\tpublic override void _Ready(){}\n\n\t// Called every frame. 'delta' is the elapsed time since the previous frame.\n\tpublic override void _Process(double delta){}\n\n\tpublic override void _UnhandledInput(InputEvent @event)\n\t{\n\t\tif (Input.IsMouseButtonPressed(MouseButton.Right))\n\t\t{\n\t\t\tGetTree().Quit();\n\t\t}\n\n\t\tif (@event is InputEventKey eventKey)\n\t\t{\n\t\t\tif (eventKey.Pressed && eventKey.Keycode == Key.Escape)\n\t\t\t{\n\t\t\t\t GetTree().Quit();\n\t\t\t}\n\t\t}\n\t}\n}",
+    "codeLanguage": "C#",
     "tag": "Godot"
   },
   {
@@ -14,7 +15,8 @@
     "title": "Diving into Coding",
     "description": "Quick description",
     "content": "This post is all about coding...",
-    "code": "```csharp \npublic void helloWorld() \n{\n\tConsole.WriteLine(\"Hello World!\")\n} \n ```",
+    "code": "```js \npublic void helloWorld() \n{\n\tConsole.WriteLine(\"Hello World!\")\n} \n ```",
+    "codeLanguage": "JavaScript",
     "tag": "Codingproblem"
   }
 ]

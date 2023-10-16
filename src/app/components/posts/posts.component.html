@@ -1,10 +1,25 @@
-<input [(ngModel)]="searchValue" />
-<p>{{ searchValue }}</p>
-<button (click)="searchForValue()">Search Button</button>
-
 <div>
-  <div *ngFor="let tag of ['Leetcode', 'Godot', 'Angular']">
-    <button (click)="loadPostsByTag(tag)">{{ tag }}</button>
+  <button (click)="loadAllPosts()">Reset Filter options</button>
+</div>
+<div class="filter-options-container">
+  <div class="filter-options-searchbyname-container">
+    <input [(ngModel)]="searchValue" />
+    <p>{{ searchValue }}</p>
+    <button (click)="searchForValue()">Search Button</button>
+  </div>
+
+  <div class="filter-options-filterbytag-container">
+    <div *ngFor="let tag of ['Angular', 'Godot', 'Codingproblem']">
+      <button (click)="loadPostsByTag(tag)">
+        {{ tag === "Codingproblem" ? "Coding Problem" : tag }}
+      </button>
+    </div>
+  </div>
+
+  <div class="filter-options-sortbydate-container">
+    <h2>Sort By Date</h2>
+    <button (click)="sortByDate('oldnew')">Old -> New</button
+    ><button (click)="sortByDate('newold')">New -> Old</button>
   </div>
 </div>
 
@@ -23,7 +38,7 @@
       <p class="post-inner-description">
         {{ post.description }}
       </p>
-      <p>[{{ post.tag }}]</p>
+      <p>[{{ post.tag === "Codingproblem" ? "Coding Problem" : post.tag }}]</p>
       <p>{{ getDate(post.date) }}</p>
     </div>
   </div>

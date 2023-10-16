@@ -4,10 +4,6 @@ import { PostsComponent } from './components/posts/posts.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 
-//
-// Posts, About
-// Posts/:postId
-
 export const routes: Routes = [
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: 'posts', component: PostsComponent },
