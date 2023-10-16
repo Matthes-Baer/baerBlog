@@ -21,7 +21,7 @@
     <div class="filter-options-filterbytag-options-container">
       <div
         *ngFor="let tag of allTags"
-        [class.selected]="tag === selectedTag"
+        [class.optionSelected]="tag === selectedTag"
         (click)="selectTag(tag)"
       >
         <div></div>
@@ -39,7 +39,7 @@
     </div>
     <div class="filter-options-sortbydate-options-container">
       <div
-        [class.selected]="'oldnew' === selectedDateSort"
+        [class.optionSelected]="'oldnew' === selectedDateSort"
         (click)="selectDateSort('oldnew')"
       >
         <app-custom-button (customClick)="sortByDate('oldnew')"
@@ -47,7 +47,7 @@
         >
       </div>
       <div
-        [class.selected]="'newold' === selectedDateSort"
+        [class.optionSelected]="'newold' === selectedDateSort"
         (click)="selectDateSort('newold')"
       >
         <app-custom-button (customClick)="sortByDate('newold')"
