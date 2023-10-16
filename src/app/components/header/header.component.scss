@@ -2,18 +2,26 @@
 
 .header {
   &-container {
-    font-size: $main-font-size;
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
+    padding: 10px;
     border-bottom: 1px solid $fourth-color;
+    border-left: 1px solid $fourth-color;
+    border-right: 1px solid $fourth-color;
+    background-color: $fourth-color;
+    font-size: $main-font-size;
+
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.2),
+      0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.1),
+      0 16px 16px rgba(0, 0, 0, 0.05);
   }
 
   &-link {
     padding-right: 12.5px;
     padding-left: 12.5px;
     text-decoration: none;
-    color: $fourth-color;
+    color: $first-color;
   }
 
   &-active-router-link {

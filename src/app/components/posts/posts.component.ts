@@ -12,6 +12,9 @@ export class PostsComponent implements OnInit, OnChanges {
   title: string = 'baerBlog';
   searchValue: string = '';
   posts: Post[] = [];
+  allTags: string[] = ['Angular', 'Godot', 'Codingproblem'];
+  selectedTag: string | null = null;
+  selectedDateSort: string | null = null;
 
   constructor(private postsService: PostsService, private router: Router) {}
 
@@ -20,6 +23,19 @@ export class PostsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {}
+
+  selectTag(tag: string): void {
+    this.selectedTag = tag;
+  }
+
+  selectDateSort(dateSort: string): void {
+    this.selectedDateSort = dateSort;
+  }
+
+  resetOptions(): void {
+    this.loadAllPosts();
+    this.selectedTag = null;
+  }
 
   navigateToPost(id: number): void {
     this.router.navigate(['posts', id]);

@@ -10,6 +10,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { HighlightDirective } from './customDirectives/highlight.directive';
+import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HighlightDirective } from './customDirectives/highlight.directive';
     NotFoundComponent,
     SinglePostComponent,
     HighlightDirective,
+    CustomButtonComponent,
   ],
   imports: [
     BrowserModule,

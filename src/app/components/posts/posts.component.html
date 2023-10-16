@@ -1,26 +1,67 @@
-<div>
-  <button (click)="loadAllPosts()">Reset Filter options</button>
-</div>
 <div class="filter-options-container">
   <div class="filter-options-searchbyname-container">
-    <input [(ngModel)]="searchValue" />
-    <p>{{ searchValue }}</p>
-    <button (click)="searchForValue()">Search Button</button>
+    <div class="filter-options-each-title-container">
+      <div class="filter-options-each-title-div-background"></div>
+      <h2 class="filter-options-each-title-text">Search by Title</h2>
+    </div>
+    <input
+      class="filter-options-searchbyname-input"
+      [(ngModel)]="searchValue"
+    />
+    <app-custom-button (customClick)="searchForValue()"
+      >Search For Title</app-custom-button
+    >
   </div>
 
   <div class="filter-options-filterbytag-container">
-    <div *ngFor="let tag of ['Angular', 'Godot', 'Codingproblem']">
-      <button (click)="loadPostsByTag(tag)">
-        {{ tag === "Codingproblem" ? "Coding Problem" : tag }}
-      </button>
+    <div class="filter-options-each-title-container">
+      <div class="filter-options-each-title-div-background"></div>
+      <h2 class="filter-options-each-title-text">Filter By Tag</h2>
+    </div>
+    <div class="filter-options-filterbytag-options-container">
+      <div
+        *ngFor="let tag of allTags"
+        [class.selected]="tag === selectedTag"
+        (click)="selectTag(tag)"
+      >
+        <div></div>
+        <app-custom-button (customClick)="loadPostsByTag(tag)">{{
+          tag === "Codingproblem" ? "Coding Problem" : tag
+        }}</app-custom-button>
+      </div>
     </div>
   </div>
 
   <div class="filter-options-sortbydate-container">
-    <h2>Sort By Date</h2>
-    <button (click)="sortByDate('oldnew')">Old -> New</button
-    ><button (click)="sortByDate('newold')">New -> Old</button>
+    <div class="filter-options-each-title-container">
+      <div class="filter-options-each-title-div-background"></div>
+      <h2 class="filter-options-each-title-text">Sort by Date</h2>
+    </div>
+    <div class="filter-options-sortbydate-options-container">
+      <div
+        [class.selected]="'oldnew' === selectedDateSort"
+        (click)="selectDateSort('oldnew')"
+      >
+        <app-custom-button (customClick)="sortByDate('oldnew')"
+          >Old -> New</app-custom-button
+        >
+      </div>
+      <div
+        [class.selected]="'newold' === selectedDateSort"
+        (click)="selectDateSort('newold')"
+      >
+        <app-custom-button (customClick)="sortByDate('newold')"
+          >New -> Old</app-custom-button
+        >
+      </div>
+    </div>
   </div>
+</div>
+
+<div class="filter-options-reset-container">
+  <app-custom-button (customClick)="resetOptions()"
+    >Reset Filter Options</app-custom-button
+  >
 </div>
 
 <div class="posts-container">

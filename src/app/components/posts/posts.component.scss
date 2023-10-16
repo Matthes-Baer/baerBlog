@@ -1,34 +1,135 @@
 @import "../../../utils/scssVariables.scss";
 
+@keyframes selectedAnimation {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
+
+.selected {
+  animation: selectedAnimation 2s ease-in-out 0s infinite alternate none;
+  background-color: $second-color;
+}
+
 .filter-options {
   &-container {
     display: flex;
     flex-direction: row;
-
-    border-bottom: 2px solid red;
     justify-content: space-evenly;
-    margin-bottom: 100px;
+    flex-wrap: wrap;
+
+    position: relative;
+    color: $fourth-color;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $fourth-color;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $fourth-color;
+      z-index: -1;
+    }
+  }
+
+  &-each-title {
+    &-container {
+      position: relative;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    &-text {
+      z-index: 10;
+      position: relative;
+      color: $fourth-color;
+      font-size: $main-font-size;
+      text-align: center;
+    }
+
+    &-div-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9;
+      background-color: $second-color;
+      transform: skewX(15deg);
+
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.2),
+        0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.1),
+        0 16px 16px rgba(0, 0, 0, 0.05);
+    }
   }
 
   &-searchbyname {
     &-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       width: 25%;
-      background-color: blue;
+    }
+
+    &-input {
+      font-size: calc($main-font-size * 0.75);
+      padding: 7.5px;
+      margin-bottom: 15px;
     }
   }
 
   &-filterbytag {
     &-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       width: 25%;
-      background-color: yellow;
+    }
+
+    &-options-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
     }
   }
 
   &-sortbydate {
     &-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       width: 25%;
-      background-color: green;
     }
+
+    &-options-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &-reset-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
   }
 }
 
@@ -76,12 +177,24 @@
 
     &-title {
       margin-bottom: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
     }
   }
 }
 
+// Responsive Section:
 @media only screen and (max-width: 1600px) {
   .post-inner-description {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .filter-options-container {
+    flex-direction: column;
+    align-items: center;
   }
 }
