@@ -18,5 +18,15 @@
     "code": "```js \npublic void helloWorld() \n{\n\tConsole.WriteLine(\"Hello World!\")\n} \n ```",
     "codeLanguage": "JavaScript",
     "tag": "Codingproblem"
+  },
+  {
+    "id": 3,
+    "date": "2021-06-01",
+    "title": "Another Post",
+    "description": "Quick description",
+    "content": "This post is all about coding...",
+    "code": "```js \npublic void helloWorld() \n{\n\tConsole.WriteLine(\"Hello World!\")\n} \n ```",
+    "codeLanguage": "JavaScript",
+    "tag": "Angular"
   }
 ]

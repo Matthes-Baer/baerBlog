@@ -1,3 +1,5 @@
+<div class="background-left-bar"></div>
+
 <div class="filter-options-container">
   <div class="filter-options-searchbyname-container">
     <div class="filter-options-each-title-container">
@@ -19,16 +21,15 @@
       <h2 class="filter-options-each-title-text">Filter By Tag</h2>
     </div>
     <div class="filter-options-filterbytag-options-container">
-      <div
-        *ngFor="let tag of allTags"
-        [class.optionSelected]="tag === selectedTag"
-        (click)="selectTag(tag)"
+      <select
+        class="filter-options-filterbytag-select"
+        [(ngModel)]="selectedTag"
+        (change)="loadPostsByTag(selectedTag)"
       >
-        <div></div>
-        <app-custom-button (customClick)="loadPostsByTag(tag)">{{
-          tag === "Codingproblem" ? "Coding Problem" : tag
-        }}</app-custom-button>
-      </div>
+        <option *ngFor="let tag of allTags" [value]="tag">
+          {{ tag === "Codingproblem" ? "Coding Problem" : tag }}
+        </option>
+      </select>
     </div>
   </div>
 
@@ -38,22 +39,18 @@
       <h2 class="filter-options-each-title-text">Sort by Date</h2>
     </div>
     <div class="filter-options-sortbydate-options-container">
-      <div
-        [class.optionSelected]="'oldnew' === selectedDateSort"
-        (click)="selectDateSort('oldnew')"
+      <select
+        class="filter-options-filterbytag-select"
+        [(ngModel)]="selectedDateSort"
+        (change)="sortByDate(selectedDateSort)"
       >
-        <app-custom-button (customClick)="sortByDate('oldnew')"
-          >Old -> New</app-custom-button
+        <option
+          *ngFor="let sortBy of ['Decreasing', 'Increasing']"
+          [value]="sortBy"
         >
-      </div>
-      <div
-        [class.optionSelected]="'newold' === selectedDateSort"
-        (click)="selectDateSort('newold')"
-      >
-        <app-custom-button (customClick)="sortByDate('newold')"
-          >New -> Old</app-custom-button
-        >
-      </div>
+          {{ sortBy }}
+        </option>
+      </select>
     </div>
   </div>
 </div>
@@ -75,12 +72,18 @@
       class="post-image"
     />
     <div class="post-inner-container">
-      <h2 class="post-inner-title">{{ post.title }}</h2>
+      <div class="post-inner-title-container">
+        <div class="post-inner-title-div-background"></div>
+        <h2 class="post-inner-title-text">{{ post.title }}</h2>
+      </div>
+
       <p class="post-inner-description">
         {{ post.description }}
       </p>
-      <p>[{{ post.tag === "Codingproblem" ? "Coding Problem" : post.tag }}]</p>
-      <p>{{ getDate(post.date) }}</p>
+      <p class="post-inner-tag">
+        [{{ post.tag === "Codingproblem" ? "Coding Problem" : post.tag }}]
+      </p>
+      <p class="post-inner-date">{{ getDate(post.date) }}</p>
     </div>
   </div>
 </div>

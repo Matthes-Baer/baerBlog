@@ -12,9 +12,9 @@ export class PostsComponent implements OnInit, OnChanges {
   title: string = 'baerBlog';
   searchValue: string = '';
   posts: Post[] = [];
-  allTags: string[] = ['Angular', 'Godot', 'Codingproblem'];
-  selectedTag: string | null = null;
-  selectedDateSort: string | null = null;
+  allTags: string[] = ['All', 'Angular', 'Godot', 'Codingproblem'];
+  selectedTag: string = 'All';
+  selectedDateSort: string = 'Decreasing';
 
   constructor(private postsService: PostsService, private router: Router) {}
 
@@ -28,13 +28,10 @@ export class PostsComponent implements OnInit, OnChanges {
     this.selectedTag = tag;
   }
 
-  selectDateSort(dateSort: string): void {
-    this.selectedDateSort = dateSort;
-  }
-
   resetOptions(): void {
     this.loadAllPosts();
-    this.selectedTag = null;
+    this.selectedTag = 'All';
+    this.selectedDateSort = 'Decreasing';
   }
 
   navigateToPost(id: number): void {
@@ -56,9 +53,13 @@ export class PostsComponent implements OnInit, OnChanges {
   }
 
   loadPostsByTag(tag: string): void {
-    this.postsService.getPostsByTag(tag).subscribe((data: Post[]) => {
-      this.posts = data;
-    });
+    if (tag === 'All') {
+      this.loadAllPosts();
+    } else {
+      this.postsService.getPostsByTag(tag).subscribe((data: Post[]) => {
+        this.posts = data;
+      });
+    }
   }
 
   loadPostsByTitle(title: string): void {
@@ -67,9 +68,9 @@ export class PostsComponent implements OnInit, OnChanges {
     });
   }
 
-  sortByDate(fromTo: string): void {
+  sortByDate(sortBy: string): void {
     this.posts.sort((postA: Post, postB: Post) => {
-      if (fromTo === 'oldnew') {
+      if (sortBy === 'Increasing') {
         return new Date(postA.date).getTime() - new Date(postB.date).getTime();
       } else {
         return new Date(postB.date).getTime() - new Date(postA.date).getTime();

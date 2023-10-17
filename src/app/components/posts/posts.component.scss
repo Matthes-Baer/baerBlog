@@ -1,17 +1,16 @@
 @import "../../../utils/scssVariables.scss";
 
-@keyframes selectedAnimation {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(5px);
-  }
-}
-
-.optionSelected {
-  animation: selectedAnimation 2s ease-in-out 0s infinite alternate none;
-  background-color: $second-color;
+.background-left-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(to bottom, $fourth-color, $second-color);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.2),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.05);
 }
 
 .filter-options {
@@ -20,7 +19,9 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     color: $fourth-color;
 
@@ -71,6 +72,7 @@
       z-index: 9;
       background-color: $second-color;
       transform: skewX(15deg);
+      border: 1px solid $fourth-color;
 
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.2),
         0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.1),
@@ -107,6 +109,11 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
+    }
+
+    &-select {
+      font-size: calc($main-font-size * 0.75);
+      padding: 7.5px;
     }
   }
 
@@ -150,9 +157,10 @@
     cursor: pointer;
     transition: 0.2s;
     text-align: center;
+    margin-bottom: 100px;
 
     &:hover {
-      background-color: yellow;
+      background-color: $third-color;
     }
   }
 
@@ -165,25 +173,80 @@
     min-height: 100px;
     min-width: 100px;
     border-radius: 50%;
-    opacity: 0.5;
+    z-index: 1;
+    opacity: 0.8;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.2),
+      0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.1),
+      0 16px 16px rgba(0, 0, 0, 0.05);
   }
 
   &-inner {
+    position: relative;
+
     &-container {
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      position: relative;
+      z-index: 10;
     }
 
     &-title {
-      margin-bottom: 15px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
+      &-container {
+        position: relative;
+        width: 85%;
+        padding: 15px;
+      }
+
+      &-div-background {
+        @extend .filter-options-each-title-div-background;
+      }
+
+      &-text {
+        position: relative;
+        margin-bottom: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        z-index: 10;
+        color: $fourth-color;
+      }
+    }
+
+    &-description {
+      padding: 15px;
+      font-size: $main-font-size;
+      color: $first-color;
+      text-shadow: 2px 2px 2px $fourth-color;
+    }
+
+    &-tag {
+      @extend .post-inner-description;
+      padding: 2.5px;
+    }
+
+    &-date {
+      @extend .post-inner-description;
+      padding: 2.5px;
     }
   }
 }
+
+// @keyframes selectedAnimation {
+//   from {
+//     transform: translateY(0px);
+//   }
+//   to {
+//     transform: translateY(5px);
+//   }
+// }
+
+// .optionSelected {
+//   animation: selectedAnimation 2s ease-in-out 0s infinite alternate none;
+//   box-shadow: 0 1px 1px 2px $second-color;
+// }
 
 // Responsive Section:
 @media only screen and (max-width: 1600px) {
