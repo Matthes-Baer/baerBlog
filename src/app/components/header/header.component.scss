@@ -6,9 +6,6 @@
     justify-content: center;
     margin-bottom: 50px;
     padding: 10px;
-    border-bottom: 1px solid $fourth-color;
-    border-left: 1px solid $fourth-color;
-    border-right: 1px solid $fourth-color;
     background-color: $fourth-color;
     font-size: $main-font-size;
 
@@ -26,5 +23,11 @@
 
   &-active-router-link {
     color: $second-color;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .header-container {
+    margin-left: -35px;
   }
 }

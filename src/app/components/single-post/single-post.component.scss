@@ -1,4 +1,9 @@
 @import "../../../utils/scssVariables.scss";
+@import "../../../utils/extendables.scss";
+
+.background-left-bar {
+  @extend .background-left-bar;
+}
 
 .single-post {
   &-container {

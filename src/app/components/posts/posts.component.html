@@ -1,89 +1,91 @@
-<div class="background-left-bar"></div>
+<main class="main-container">
+  <div class="background-left-bar"></div>
 
-<div class="filter-options-container">
-  <div class="filter-options-searchbyname-container">
-    <div class="filter-options-each-title-container">
-      <div class="filter-options-each-title-div-background"></div>
-      <h2 class="filter-options-each-title-text">Search by Title</h2>
+  <div class="filter-options-container">
+    <div class="filter-options-searchbyname-container">
+      <div class="filter-options-each-title-container">
+        <div class="filter-options-each-title-div-background"></div>
+        <h2 class="filter-options-each-title-text">Search by Title</h2>
+      </div>
+      <input
+        class="filter-options-searchbyname-input"
+        [(ngModel)]="searchValue"
+      />
+      <app-custom-button (customClick)="searchForValue()"
+        >Search For Title</app-custom-button
+      >
     </div>
-    <input
-      class="filter-options-searchbyname-input"
-      [(ngModel)]="searchValue"
-    />
-    <app-custom-button (customClick)="searchForValue()"
-      >Search For Title</app-custom-button
+
+    <div class="filter-options-filterbytag-container">
+      <div class="filter-options-each-title-container">
+        <div class="filter-options-each-title-div-background"></div>
+        <h2 class="filter-options-each-title-text">Filter By Tag</h2>
+      </div>
+      <div class="filter-options-filterbytag-options-container">
+        <select
+          class="filter-options-filterbytag-select"
+          [(ngModel)]="selectedTag"
+          (change)="loadPostsByTag(selectedTag)"
+        >
+          <option *ngFor="let tag of allTags" [value]="tag">
+            {{ tag === "Codingproblem" ? "Coding Problem" : tag }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filter-options-sortbydate-container">
+      <div class="filter-options-each-title-container">
+        <div class="filter-options-each-title-div-background"></div>
+        <h2 class="filter-options-each-title-text">Sort by Date</h2>
+      </div>
+      <div class="filter-options-sortbydate-options-container">
+        <select
+          class="filter-options-sortbydate-options-select"
+          [(ngModel)]="selectedDateSort"
+          (change)="sortByDate(selectedDateSort)"
+        >
+          <option
+            *ngFor="let sortBy of ['Decreasing', 'Increasing']"
+            [value]="sortBy"
+          >
+            {{ sortBy }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-options-reset-container">
+    <app-custom-button (customClick)="resetOptions()"
+      >Reset Filter Options</app-custom-button
     >
   </div>
 
-  <div class="filter-options-filterbytag-container">
-    <div class="filter-options-each-title-container">
-      <div class="filter-options-each-title-div-background"></div>
-      <h2 class="filter-options-each-title-text">Filter By Tag</h2>
-    </div>
-    <div class="filter-options-filterbytag-options-container">
-      <select
-        class="filter-options-filterbytag-select"
-        [(ngModel)]="selectedTag"
-        (change)="loadPostsByTag(selectedTag)"
-      >
-        <option *ngFor="let tag of allTags" [value]="tag">
-          {{ tag === "Codingproblem" ? "Coding Problem" : tag }}
-        </option>
-      </select>
-    </div>
-  </div>
+  <div class="posts-container">
+    <section
+      *ngFor="let post of posts"
+      (click)="navigateToPost(post.id)"
+      class="post-container"
+    >
+      <img
+        [src]="'../../../assets/images/' + post.tag.toLowerCase() + '.jpg'"
+        class="post-image"
+      />
+      <div class="post-inner-container">
+        <div class="post-inner-title-container">
+          <div class="post-inner-title-div-background"></div>
+          <h2 class="post-inner-title-text">{{ post.title }}</h2>
+        </div>
 
-  <div class="filter-options-sortbydate-container">
-    <div class="filter-options-each-title-container">
-      <div class="filter-options-each-title-div-background"></div>
-      <h2 class="filter-options-each-title-text">Sort by Date</h2>
-    </div>
-    <div class="filter-options-sortbydate-options-container">
-      <select
-        class="filter-options-filterbytag-select"
-        [(ngModel)]="selectedDateSort"
-        (change)="sortByDate(selectedDateSort)"
-      >
-        <option
-          *ngFor="let sortBy of ['Decreasing', 'Increasing']"
-          [value]="sortBy"
-        >
-          {{ sortBy }}
-        </option>
-      </select>
-    </div>
-  </div>
-</div>
-
-<div class="filter-options-reset-container">
-  <app-custom-button (customClick)="resetOptions()"
-    >Reset Filter Options</app-custom-button
-  >
-</div>
-
-<div class="posts-container">
-  <div
-    *ngFor="let post of posts"
-    (click)="navigateToPost(post.id)"
-    class="post-container"
-  >
-    <img
-      [src]="'../../../assets/images/' + post.tag.toLowerCase() + '.jpg'"
-      class="post-image"
-    />
-    <div class="post-inner-container">
-      <div class="post-inner-title-container">
-        <div class="post-inner-title-div-background"></div>
-        <h2 class="post-inner-title-text">{{ post.title }}</h2>
+        <p class="post-inner-description">
+          {{ post.description }}
+        </p>
+        <p class="post-inner-tag">
+          [{{ post.tag === "Codingproblem" ? "Coding Problem" : post.tag }}]
+        </p>
+        <p class="post-inner-date">{{ getDate(post.date) }}</p>
       </div>
-
-      <p class="post-inner-description">
-        {{ post.description }}
-      </p>
-      <p class="post-inner-tag">
-        [{{ post.tag === "Codingproblem" ? "Coding Problem" : post.tag }}]
-      </p>
-      <p class="post-inner-date">{{ getDate(post.date) }}</p>
-    </div>
+    </section>
   </div>
-</div>
+</main>
