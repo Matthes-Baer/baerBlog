@@ -1,0 +1,11 @@
+@import "../../../utils/scssVariables.scss";
+@import "../../../utils/extendables.scss";
+
+.background-left-bar {
+  @extend .background-left-bar;
+}
+
+h1 {
+  font-size: $title-font-size;
+  text-align: center;
+}

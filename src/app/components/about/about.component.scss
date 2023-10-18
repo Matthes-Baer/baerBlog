@@ -1,0 +1,135 @@
+@import "../../../utils/scssVariables.scss";
+@import "../../../utils/extendables.scss";
+
+.background-left-bar {
+  @extend .background-left-bar;
+}
+
+.each-image {
+  width: 60%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.2),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.05);
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-bottom: 50px;
+}
+
+.content {
+  &-text {
+    font-size: $main-font-size;
+    text-align: justify;
+    width: 35%;
+    position: relative;
+    padding: 15px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $fourth-color;
+      z-index: -1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $fourth-color;
+      z-index: -1;
+    }
+  }
+
+  &-images {
+    width: 60%;
+    position: relative;
+  }
+
+  &-angular-image {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    z-index: -1;
+
+    @extend .each-image;
+  }
+
+  &-codingproblem-image {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    z-index: -2;
+
+    @extend .each-image;
+  }
+
+  &-godot-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -3;
+
+    @extend .each-image;
+  }
+}
+
+@media only screen and (max-width: 1700px) {
+  .content {
+    &-godot-image {
+      bottom: 25%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1450px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    &-text {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    &-images {
+      width: 100%;
+      height: 100vh;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .content {
+    &-images {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .background-left-bar {
+    display: none;
+  }
+
+  .main-container {
+    margin-left: -35px;
+    margin-right: 0px;
+  }
+}

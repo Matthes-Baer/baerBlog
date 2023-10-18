@@ -11,6 +11,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { HighlightDirective } from './customDirectives/highlight.directive';
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CustomButtonComponent } from './components/custom-button/custom-button.
     SinglePostComponent,
     HighlightDirective,
     CustomButtonComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
