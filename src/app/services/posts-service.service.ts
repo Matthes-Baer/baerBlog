@@ -14,8 +14,17 @@ export class PostsService {
 
   constructor(private http: HttpClient) {}
 
-  getAllPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.postsUrl);
+  getAllPostsDecreasingDate(): Observable<Post[]> {
+    return this.http
+      .get<Post[]>(this.postsUrl)
+      .pipe(
+        map((posts: Post[]) =>
+          posts.sort(
+            (postA: Post, postB: Post) =>
+              new Date(postB.date).getTime() - new Date(postA.date).getTime()
+          )
+        )
+      );
   }
 
   getPostsByTag(tag: string): Observable<Post[]> {

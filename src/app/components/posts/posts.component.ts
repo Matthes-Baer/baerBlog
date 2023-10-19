@@ -47,7 +47,7 @@ export class PostsComponent implements OnInit, OnChanges {
   }
 
   loadAllPosts(): void {
-    this.postsService.getAllPosts().subscribe((data: Post[]) => {
+    this.postsService.getAllPostsDecreasingDate().subscribe((data: Post[]) => {
       this.posts = data;
     });
   }
