@@ -21,12 +21,12 @@
   },
   {
     "id": 3,
-    "date": "2021-06-01",
-    "title": "Another Post",
-    "description": "Quick description",
-    "content": "This post is all about coding...",
-    "code": "```js \npublic void helloWorld() \n{\n\tConsole.WriteLine(\"Hello World!\")\n}",
+    "date": "2023-10-21",
+    "title": "Quick Introduction to Routing",
+    "description": "A quick overview of Angular's routing system serving as a quick knowledge refresher.",
+    "content": "Routing is essential for configuring an effective Single Page Application (SPA). It enables the creation and management of multiple pages, known as routes, which facilitate navigation within the app. In the context of Angular, one can also utilize guards. These guards can be instrumental in granting or denying access to specific routes based on user privileges. When compared with React.js, setting up routing in an Angular application is relatively straightforward. <br /><br />In fact, upon initiating a new Angular application, you'll be prompted to decide whether an initial routing file, *app-routing.module.ts*, should be configured. This file is the hub for defining the routes you wish to integrate into your Angular app. Consider the code example below which illustrates the routing logic for a given application. Observably, there are five distinct routes. Of these, *posts*, *posts/:id*, and *about* are the primary ones. The first route serves to redirect users when they manually modify the URL, barring direct access to posts in this specific application. The ** route functions as a catch-all, handling instances where users attempt to access nonexistent paths, such as *thisWillLeadNowhere/312*.<br /><br />It's vital to note that the route linked to the NotFoundComponent doesn't cater to routes like posts/ThisIsNotAnId. In such scenarios, the dynamic *posts/:id* route would be triggered. To mitigate against these invalid routes, a catchError logic has been integrated into the corresponding service function within *SinglePostComponent*.",
+    "code": "```js \nimport { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { PostsComponent } from './components/posts/posts.component';\nimport { NotFoundComponent } from './components/not-found/not-found.component';\nimport { SinglePostComponent } from './components/single-post/single-post.component';\nimport { AboutComponent } from './components/about/about.component';\n\nexport const routes: Routes = [\n\t{ path: '', redirectTo: 'posts', pathMatch: 'full' },\n\t{ path: 'posts', component: PostsComponent },\n\t{ path: 'posts/:id', component: SinglePostComponent },\n\t{ path: 'about', component: AboutComponent },\n\t{ path: '**', component: NotFoundComponent },\n];\n\n@NgModule({\n\timports: [RouterModule.forRoot(routes)],\n\texports: [RouterModule],\n})\n\nexport class AppRoutingModule {}",
     "codeLanguage": "JavaScript",
-    "tag": "Codingproblem"
+    "tag": "Angular"
   }
 ]
