@@ -27,6 +27,6 @@
     "content": "This post is all about coding...",
     "code": "```js \npublic void helloWorld() \n{\n\tConsole.WriteLine(\"Hello World!\")\n}",
     "codeLanguage": "JavaScript",
-    "tag": "Angular"
+    "tag": "Codingproblem"
   }
 ]

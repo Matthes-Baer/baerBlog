@@ -10,6 +10,8 @@ import { Post } from 'src/utils/interfaces';
 })
 export class SinglePostComponent implements OnInit {
   currentPost: Post = {} as Post;
+  allPostsWithCurrentTag: Post[] = [];
+  nextPost: Post = {} as Post;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -35,6 +37,14 @@ export class SinglePostComponent implements OnInit {
     this.postService.getSinglePostById(id).subscribe(
       (post: Post) => {
         this.currentPost = post;
+
+        this.postService
+          .getPostsByTag(this.currentPost.tag)
+          .subscribe((data: Post[]) => {
+            this.allPostsWithCurrentTag = data;
+
+            this.getNextPost();
+          });
       },
       (error) => {
         this.router.navigate(['404']);
@@ -44,5 +54,18 @@ export class SinglePostComponent implements OnInit {
 
   getDate(stringDate: string): string {
     return new Date(stringDate).toLocaleDateString('en-US');
+  }
+
+  getNextPost(): void {
+    const n = this.allPostsWithCurrentTag.length;
+    const randomNumber = Math.floor(Math.random() * n);
+    const arrayCopy = [...this.allPostsWithCurrentTag];
+    const findCurrentPostIdx = arrayCopy.findIndex(
+      (post: Post) => post.id === this.currentPost.id
+    );
+
+    arrayCopy.splice(findCurrentPostIdx, 1);
+
+    this.nextPost = arrayCopy[randomNumber];
   }
 }

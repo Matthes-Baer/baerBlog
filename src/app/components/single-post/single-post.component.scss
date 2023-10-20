@@ -49,10 +49,17 @@
     }
   }
 
-  &-next-post-area-container {
-    display: flex;
-    font-size: $main-font-size;
-    justify-content: flex-end;
-    background-color: $second-color;
+  &-next-area {
+    &-content {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 50%;
+      padding: 15px;
+      color: $fourth-color;
+      font-size: $title-font-size;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 }

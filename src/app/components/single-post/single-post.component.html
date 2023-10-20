@@ -24,7 +24,8 @@
     <markdown lineNumbers [data]="currentPost.code"></markdown>
   </div>
 
-  <div class="single-post-next-post-area-container">
-    <p>See next similar post...</p>
-  </div>
+  <h3 class="single-post-next-area-content">
+    See a similar post:
+    <a [routerLink]="'/posts/' + nextPost.id">{{ nextPost.title }}</a>
+  </h3>
 </main>
