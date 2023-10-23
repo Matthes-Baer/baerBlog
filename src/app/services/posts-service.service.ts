@@ -49,9 +49,11 @@ export class PostsService {
     return this.http.get<Post[]>(this.postsUrl).pipe(
       map((posts: Post[]) => {
         const post = posts.find((post: Post) => post.id === parseInt(id));
+
         if (!post) {
           throw new Error('Post not found');
         }
+
         return post;
       }),
       catchError((err) => throwError(() => new Error(err)))
