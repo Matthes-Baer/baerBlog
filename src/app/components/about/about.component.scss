@@ -110,16 +110,40 @@
 
     &-images {
       width: 100%;
-      height: 100vh;
+      height: 50vh;
+    }
+
+    &-angular-image {
+      display: none;
+    }
+  }
+
+  .each-image {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .content {
+    &-godot-image {
+      display: none;
+    }
+
+    &-images {
+      height: auto;
     }
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 600px) {
   .content {
-    &-images {
-      display: none;
+    &-codingproblem-image {
+      top: 0;
     }
+  }
+
+  .each-image {
+    width: 100%;
   }
 }
 
