@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { PostsService } from 'src/app/services/posts-service.service';
 import { Post } from 'src/utils/interfaces';
 
@@ -8,10 +9,11 @@ import { Post } from 'src/utils/interfaces';
   templateUrl: './single-post.component.html',
   styleUrls: ['./single-post.component.scss'],
 })
-export class SinglePostComponent implements OnInit {
+export class SinglePostComponent implements OnInit, OnDestroy {
   currentPost: Post = {} as Post;
   allPostsWithCurrentTag: Post[] = [];
   nextPost: Post = {} as Post;
+  subscriptions: Subscription = new Subscription();
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -20,17 +22,28 @@ export class SinglePostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activeRoute.paramMap.subscribe((param) => {
-      const id: string = param.get('id') || '';
-      const idNumber: number = parseInt(id);
+    this.subscriptions.add(
+      this.activeRoute.paramMap.subscribe((param) => {
+        const id: string = param.get('id') || '';
+        const idNumber: number = parseInt(id);
 
-      if (Number.isNaN(idNumber) || idNumber < 1) {
-        this.router.navigate(['404']);
-        return;
-      }
+        if (Number.isNaN(idNumber) || idNumber < 1) {
+          this.router.navigate(['404']);
+          return;
+        }
 
-      this.loadSinglePost(id);
-    });
+        // Reset data before loading new content
+        this.currentPost = {} as Post;
+        this.allPostsWithCurrentTag = [];
+        this.nextPost = {} as Post;
+
+        this.loadSinglePost(id);
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   loadSinglePost(id: string): void {
@@ -46,6 +59,7 @@ export class SinglePostComponent implements OnInit {
             this.getNextPost();
           });
       },
+
       (error) => {
         this.router.navigate(['404']);
       }
@@ -57,7 +71,7 @@ export class SinglePostComponent implements OnInit {
   }
 
   getNextPost(): void {
-    const n = this.allPostsWithCurrentTag.length;
+    const n = this.allPostsWithCurrentTag.length - 1;
     const randomNumber = Math.floor(Math.random() * n);
     const arrayCopy = [...this.allPostsWithCurrentTag];
     const findCurrentPostIdx = arrayCopy.findIndex(
@@ -65,7 +79,6 @@ export class SinglePostComponent implements OnInit {
     );
 
     arrayCopy.splice(findCurrentPostIdx, 1);
-
     this.nextPost = arrayCopy[randomNumber];
   }
 }
