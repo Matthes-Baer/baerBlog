@@ -32,7 +32,6 @@ export class SinglePostComponent implements OnInit, OnDestroy {
           return;
         }
 
-        // Reset data before loading new content
         this.currentPost = {} as Post;
         this.allPostsWithCurrentTag = [];
         this.nextPost = {} as Post;
