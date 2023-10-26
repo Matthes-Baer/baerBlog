@@ -1,4 +1,4 @@
-# Project: <a href="#" target="_blank">BaerBlog</a>
+# Project: <a href="https://baer-blog.vercel.app/" target="_blank">BaerBlog</a>
 
 A personal blog project that served the purpose of learning to work with the Angular framework.
 
