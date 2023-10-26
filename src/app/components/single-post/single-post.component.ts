@@ -23,6 +23,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscriptions.add(
+      // If the URL parameter changes, the subscribe logic will run again (fetches currentPost and nextPost)
       this.activeRoute.paramMap.subscribe((param) => {
         const id: string = param.get('id') || '';
         const idNumber: number = parseInt(id);
@@ -32,6 +33,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
           return;
         }
 
+        // Reset data before loading new content
         this.currentPost = {} as Post;
         this.allPostsWithCurrentTag = [];
         this.nextPost = {} as Post;
