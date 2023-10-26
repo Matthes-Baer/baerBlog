@@ -22,7 +22,6 @@ A personal blog project that served the purpose of learning to work with the Ang
 
 ## About the Project 🔎
 
-This frontend project serves as a personal blog that incorperates posts around different topics I want to store information about for the future.
-This includes, for example, various coding problem approaches.
+This frontend project functions as a personal blog where I curate and share posts on a variety of topics that I want to preserve for future reference. One of the key themes featured here is the exploration of different problem-solving approaches in coding.
 
-Throughout the project, my main goal was to gain familiarity with the Angular framework.
+Throughout the development of this project, my primary objective has been to deepen my proficiency in the Angular framework.
