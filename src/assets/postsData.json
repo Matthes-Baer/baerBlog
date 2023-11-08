@@ -73,9 +73,9 @@
     "id": 8,
     "date": "2023-11-08",
     "title": "Determining whether a number is an exponent of y",
-    "description": "A quick introduction to unit tests, serving as a knowledge refresher for future projects.",
+    "description": "Check if a number is an exponent of y, using 5 as an example for y in this specific scenario.",
     "content": "The code snippet provided offers a method to determine if a number is a power of 5. To make this more versatile, one could adapt the code to accept a variable in place of 5, thereby allowing it to check for powers of any number. This could be achieved by passing `y` as a parameter to the function.<br/><br/>While the underlying concept is straightforward upon review, getting to such a solution during the pressure of a time-constrained coding challenge might be difficult.<br/><br/>It's beneficial to familiarize oneself with the fundamental principle for this case: repeatedly dividing the target number by `y` until further division would result in a non-integer quotient. Should you reach a point where dividing by `y` would yield a fractional number, you can conclude that the original number was not a power of `y`.",
-    "code": "```js \nfunction isPowerOfFive(num) {\n\tif (num < 1) {\n\t\treturn false;\n\t}\n\n\twhile (num > 1) {\n\t\tif (num % 5 !== 0) {\n\t\treturn false;\n\t\t}\n\t\tnum /= 5;\n\t}\n\t\treturn true;\n}",
+    "code": "```js \nfunction isPowerOfFive(num) {\n\tif (num < 1) {\n\t\treturn false;\n\t}\n\n\twhile (num > 1) {\n\t\tif (num % 5 !== 0) {\n\t\t\treturn false;\n\t\t}\n\n\t\tnum /= 5;\n\t}\n\n\t\treturn true;\n}",
     "codeLanguage": "JavaScript",
     "tag": "Codingproblem"
   }
